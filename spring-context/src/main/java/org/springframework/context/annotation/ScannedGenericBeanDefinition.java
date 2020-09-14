@@ -37,6 +37,8 @@ import org.springframework.util.Assert;
  * but distinguishes by type beans that have been <em>scanned</em> vs those that have
  * been otherwise registered or detected by other means.
  *
+ * 通过注解扫描的类，如@Service,@Compent等方式配置的Bean都是ScannedGenericBeanDefinition
+ *
  * @author Juergen Hoeller
  * @author Chris Beams
  * @since 2.5

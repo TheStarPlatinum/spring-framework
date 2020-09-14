@@ -38,6 +38,7 @@ import org.springframework.util.StringUtils;
 public abstract class AttributeAccessorSupport implements AttributeAccessor, Serializable {
 
 	/** Map with String keys and Object values. */
+	//BeanDefinition体系中，通过访问者模式所有操作的数据对象
 	private final Map<String, Object> attributes = new LinkedHashMap<>();
 
 

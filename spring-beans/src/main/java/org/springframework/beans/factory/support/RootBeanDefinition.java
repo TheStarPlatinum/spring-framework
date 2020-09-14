@@ -61,6 +61,10 @@ public class RootBeanDefinition extends AbstractBeanDefinition {
 	private AnnotatedElement qualifiedElement;
 
 	/** Determines if the definition needs to be re-merged. */
+	/*
+	这个标志是5.2.x加上的 5.1之前没有
+	意思大概是这个beanDefinition有没有被注册(管理)?
+	 */
 	volatile boolean stale;
 
 	boolean allowCaching = true;

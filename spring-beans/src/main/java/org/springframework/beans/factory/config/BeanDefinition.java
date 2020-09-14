@@ -92,6 +92,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 	/**
 	 * Return the name of the parent definition of this bean definition, if any.
+	 * 获取父BeanDefinition,主要用于合并
 	 */
 	@Nullable
 	String getParentName();
@@ -100,6 +101,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 * Specify the bean class name of this bean definition.
 	 * <p>The class name can be modified during bean factory post-processing,
 	 * typically replacing the original class name with a parsed variant of it.
+	 * 对子的classname
 	 * @see #setParentName
 	 * @see #setFactoryBeanName
 	 * @see #setFactoryMethodName
@@ -151,6 +153,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	/**
 	 * Set the names of the beans that this bean depends on being initialized.
 	 * The bean factory will guarantee that these beans get initialized first.
+	 * 是否需要等待指定的bean创建完在创建
 	 */
 	void setDependsOn(@Nullable String... dependsOn);
 
@@ -167,6 +170,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 * if the specified bean is not marked as an autowire candidate. As a consequence,
 	 * autowiring by name will nevertheless inject a bean if the name matches.
 	 */
+	//是否作为自动注入的候选对象
 	void setAutowireCandidate(boolean autowireCandidate);
 
 	/**
@@ -178,6 +182,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 * Set whether this bean is a primary autowire candidate.
 	 * <p>If this value is {@code true} for exactly one bean among multiple
 	 * matching candidates, it will serve as a tie-breaker.
+	 * 是否作为主选的bean
 	 */
 	void setPrimary(boolean primary);
 

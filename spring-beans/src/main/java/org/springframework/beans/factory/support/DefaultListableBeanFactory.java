@@ -871,6 +871,8 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		List<String> beanNames = new ArrayList<>(this.beanDefinitionNames);
 
 		// Trigger initialization of all non-lazy singleton beans...
+		//进行了一次bd合并
+		//此处为spring实例化一个对象时所做出的第一次bd合并
 		for (String beanName : beanNames) {
 			RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
 			if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {

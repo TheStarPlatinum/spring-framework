@@ -412,6 +412,7 @@ public class BeanDefinitionParserDelegate {
 	 */
 	@Nullable
 	public BeanDefinitionHolder parseBeanDefinitionElement(Element ele, @Nullable BeanDefinition containingBean) {
+		//解析id name属性
 		String id = ele.getAttribute(ID_ATTRIBUTE);
 		String nameAttr = ele.getAttribute(NAME_ATTRIBUTE);
 

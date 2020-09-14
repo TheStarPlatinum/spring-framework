@@ -307,6 +307,9 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	 */
 	@Override
 	public int loadBeanDefinitions(Resource resource) throws BeanDefinitionStoreException {
+		//EncodedResource 当设置了编码属性的时候spring会使用相应的编码作为输入流的编码
+
+
 		return loadBeanDefinitions(new EncodedResource(resource));
 	}
 
@@ -316,6 +319,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	 * allowing to specify an encoding to use for parsing the file
 	 * @return the number of bean definitions found
 	 * @throws BeanDefinitionStoreException in case of loading or parsing errors
+	 *
+	 * 这个方法内部为真正的数据准备阶段
 	 */
 	public int loadBeanDefinitions(EncodedResource encodedResource) throws BeanDefinitionStoreException {
 		Assert.notNull(encodedResource, "EncodedResource must not be null");
@@ -323,6 +328,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 			logger.trace("Loading XML bean definitions from " + encodedResource);
 		}
 
+		//resourcesCurrentlyBeingLoaded是一个 NamedThreadLocal
 		Set<EncodedResource> currentResources = this.resourcesCurrentlyBeingLoaded.get();
 
 		if (!currentResources.add(encodedResource)) {
@@ -335,6 +341,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 			if (encodedResource.getEncoding() != null) {
 				inputSource.setEncoding(encodedResource.getEncoding());
 			}
+			//逻辑核心部分
 			return doLoadBeanDefinitions(inputSource, encodedResource.getResource());
 		}
 		catch (IOException ex) {

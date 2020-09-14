@@ -34,6 +34,11 @@ import org.springframework.util.Assert;
  * {@link org.springframework.context.annotation.ScannedGenericBeanDefinition},
  * which also implements the AnnotatedBeanDefinition interface).
  *
+ * 通过AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
+ * ac.register(Config.class) 形式得到的对象最终在spring容器中就是一个AnnotatedGenericBeanDefinition
+ *
+ * 通过@Import导入的类 最后解析都是一个AnnotatedGenericBeanDefinition
+ *
  * @author Juergen Hoeller
  * @author Chris Beams
  * @since 2.5

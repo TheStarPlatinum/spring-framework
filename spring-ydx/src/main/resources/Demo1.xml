@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--	关于BeanDefinition中abstract属性的说明：-->
+<!--		1.并不是作为父BeanDefinition就一定要设置abstract属性为 true，abstract-->
+<!--		只代表了这个BeanDefinition是否要被 Spring 进行实例化并被创建对应的 Bean，-->
+<!--		如果为 true，代表容器不需要去对其进行实例化。-->
+<!--		2.如果一个BeanDefinition被当作父BeanDefinition使用，并且没有指定其class属性。那么必须要设置其abstract为 true-->
+<!--		3.abstract=true一般会跟父BeanDefinition一起使用，因为当我们设置某个BeanDefinition的abstract=true时，-->
+<!--		一般都是要将其当作BeanDefinition的模板使用，否则这个BeanDefinition也没有意义，除非我们使用其它BeanDefinition来继承它的属性-->
+	<bean id="parent" abstract="true"
+		  class="com.ydx.beanDefinition.demo1.TestBean">
+		<property name="name" value="parent"/>
+		<property name="age" value="1"/>
+	</bean>
+	<bean id="child"
+		  class="com.ydx.beanDefinition.demo1.DerivedTestBean"
+		  parent="parent" >
+<!--		<property name="name" value="override"/>-->
+	</bean>
+</beans>

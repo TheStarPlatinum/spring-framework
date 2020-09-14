@@ -120,6 +120,7 @@ class XmlBeanFactoryTests {
 	private static final ClassPathResource DEFAULT_LAZY_CONTEXT = classPathResource("-defaultLazyInit.xml");
 	private static final ClassPathResource DEFAULT_AUTOWIRE_CONTEXT = classPathResource("-defaultAutowire.xml");
 
+
 	private static ClassPathResource classPathResource(String suffix) {
 		return new ClassPathResource(CLASSNAME + suffix, CLASS);
 	}

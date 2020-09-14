@@ -27,4 +27,8 @@ dependencies {
     optional(project(":spring-webmvc"))
     optional(project(":spring-websocket"))
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+    testCompileOnly 'org.projectlombok:lombok:1.18.4'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.4'
 }

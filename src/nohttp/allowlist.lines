@@ -24,3 +24,5 @@
 ^http://www.w3.org/2000/xmlns/
 ^http://xmlunit.sourceforge.net.*
 ^http://xunitpatterns.com.*
+^http://maven.aliyun.com.*
+^http://www.springframework.org.*

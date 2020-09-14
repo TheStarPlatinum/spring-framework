@@ -390,6 +390,8 @@ class ConfigurationClassBeanDefinitionReader {
 	 * was created from a configuration class as opposed to any other configuration source.
 	 * Used in bean overriding cases where it's necessary to determine whether the bean
 	 * definition was created externally.
+	 *
+	 * 通过@Bean的方式配置的Bean为ConfigurationClassBeanDefinition
 	 */
 	@SuppressWarnings("serial")
 	private static class ConfigurationClassBeanDefinition extends RootBeanDefinition implements AnnotatedBeanDefinition {

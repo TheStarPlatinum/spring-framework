@@ -31,6 +31,9 @@ import org.springframework.util.ObjectUtils;
  * potentially even reconfiguring the parent name). Use {@code RootBeanDefinition} /
  * {@code ChildBeanDefinition} where parent/child relationships happen to be pre-determined.
  *
+ * 替代了原来的ChildBeanDefinition，比起ChildBeanDefinition更为灵活，ChildBeanDefinition在实例化的时候必须要指定一个parentName,
+ * 而GenericBeanDefinition不需要。我们通过注解配置的bean以及我们的配置类（除@Bena外）的BeanDefiniton类型都是GenericBeanDefinition
+ *
  * @author Juergen Hoeller
  * @since 2.5
  * @see #setParentName

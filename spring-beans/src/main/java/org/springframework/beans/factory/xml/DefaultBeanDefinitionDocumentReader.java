@@ -129,8 +129,10 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 		this.delegate = createDelegate(getReaderContext(), root, parent);
 
 		if (this.delegate.isDefaultNamespace(root)) {
+			//处理profile
 			String profileSpec = root.getAttribute(PROFILE_ATTRIBUTE);
 			if (StringUtils.hasText(profileSpec)) {
+				//处理解析
 				String[] specifiedProfiles = StringUtils.tokenizeToStringArray(
 						profileSpec, BeanDefinitionParserDelegate.MULTI_VALUE_ATTRIBUTE_DELIMITERS);
 				// We cannot use Profiles.of(...) since profile expressions are not supported
@@ -145,8 +147,10 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 			}
 		}
 
+		//解析前处理 留给子类实现
 		preProcessXml(root);
 		parseBeanDefinitions(root, this.delegate);
+		//解析后处理 留给子类实现
 		postProcessXml(root);
 
 		this.delegate = parent;
@@ -172,6 +176,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 				Node node = nl.item(i);
 				if (node instanceof Element) {
 					Element ele = (Element) node;
+					//判断是否是默认标签的解析
 					if (delegate.isDefaultNamespace(ele)) {
 						parseDefaultElement(ele, delegate);
 					}
@@ -187,6 +192,7 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 	}
 
 	private void parseDefaultElement(Element ele, BeanDefinitionParserDelegate delegate) {
+		//对不同标签的解析
 		if (delegate.nodeNameEquals(ele, IMPORT_ELEMENT)) {
 			importBeanDefinitionResource(ele);
 		}
