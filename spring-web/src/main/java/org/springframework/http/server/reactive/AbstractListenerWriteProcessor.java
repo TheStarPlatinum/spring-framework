@@ -67,7 +67,7 @@ public abstract class AbstractListenerWriteProcessor<T> implements Processor<T, 
 	private volatile boolean subscriberCompleted;
 
 	/**
-	 * Indicates we're waiting for one last isReady-onWritePossible cycle
+	 * Indicates we're waiting for one last isReady-onWritePossible cycledependcy
 	 * after "onComplete" because some Servlet containers expect this to take
 	 * place prior to calling AsyncContext.complete().
 	 * See https://github.com/eclipse-ee4j/servlet-api/issues/273

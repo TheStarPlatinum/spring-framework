@@ -17,6 +17,6 @@
 	<bean id="child"
 		  class="com.ydx.beanDefinition.demo1.DerivedTestBean"
 		  parent="parent" >
-<!--		<property name="name" value="override"/>-->
+		<property name="name" value="override"/>
 	</bean>
 </beans>

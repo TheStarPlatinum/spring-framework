@@ -665,7 +665,10 @@ public class JdbcTemplate extends JdbcAccessor implements JdbcOperations {
 
 		Assert.notNull(rse, "ResultSetExtractor must not be null");
 		logger.debug("Executing prepared SQL query");
-
+		/*
+		 * query直接调用了execute方法
+		 * execute是jdbcTemplate的基本api 查询 更新和保存都会进入到这个方法中
+		 */
 		return execute(psc, new PreparedStatementCallback<T>() {
 			@Override
 			@Nullable
@@ -697,6 +700,7 @@ public class JdbcTemplate extends JdbcAccessor implements JdbcOperations {
 	@Override
 	@Nullable
 	public <T> T query(String sql, @Nullable PreparedStatementSetter pss, ResultSetExtractor<T> rse) throws DataAccessException {
+		//将sql封装成
 		return query(new SimplePreparedStatementCreator(sql), pss, rse);
 	}
 
@@ -709,6 +713,7 @@ public class JdbcTemplate extends JdbcAccessor implements JdbcOperations {
 	@Override
 	@Nullable
 	public <T> T query(String sql, @Nullable Object[] args, ResultSetExtractor<T> rse) throws DataAccessException {
+		//将参数封装
 		return query(sql, newArgPreparedStatementSetter(args), rse);
 	}
 
@@ -787,6 +792,7 @@ public class JdbcTemplate extends JdbcAccessor implements JdbcOperations {
 	@Override
 	@Nullable
 	public <T> T queryForObject(String sql, RowMapper<T> rowMapper, @Nullable Object... args) throws DataAccessException {
+
 		List<T> results = query(sql, args, new RowMapperResultSetExtractor<>(rowMapper, 1));
 		return DataAccessUtils.nullableSingleResult(results);
 	}

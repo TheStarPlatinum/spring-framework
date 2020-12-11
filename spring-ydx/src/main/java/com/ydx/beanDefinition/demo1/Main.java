@@ -11,13 +11,20 @@ public class Main {
 		 * 子BeanDefinition会从父BeanDefinition中继承没有的属性
 		 * 这个过程中，子BeanDefinition中已经存在的属性不会被父BeanDefinition中所覆盖
 		 */
-		ClassPathXmlApplicationContext cc = new ClassPathXmlApplicationContext("Demo1.xml");
+		ClassPathXmlApplicationContext cc = new ClassPathXmlApplicationContext("");
+
+		System.out.println("//////////////////////////////");
 		DerivedTestBean derivedTestBean = (DerivedTestBean) cc.getBean("child");
 		System.out.println("derivedTestBean的name = " + derivedTestBean.getName());
-		System.out.println("derivedTestBean的age = " + derivedTestBean.getAge());
+//		System.out.println("derivedTestBean的age = " + derivedTestBean.getAge());
 
 //		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
 //		ac.getBean("");
 //		ac.register();
+//		Integer a=1;
+//		Integer b=1;
+//		Integer c = null;
+//		int num = false?a*b:c;
+//		System.out.println(num);
 	}
 }

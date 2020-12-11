@@ -118,6 +118,10 @@ import org.springframework.util.StringUtils;
  * @see #resolveDependency
  */
 @SuppressWarnings("serial")
+/*
+XmlBeanFactory继承自DefaultListableBeanFactory 并提供了XmlBeanDefinitionReader的reader属性 也就是说DefaultListableBeanFactory
+是容器的基础 必须首先实例化
+ */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
 		implements ConfigurableListableBeanFactory, BeanDefinitionRegistry, Serializable {
 

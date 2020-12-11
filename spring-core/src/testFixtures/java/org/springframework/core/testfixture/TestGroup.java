@@ -38,7 +38,7 @@ public enum TestGroup {
 	/**
 	 * Tests that take a considerable amount of time to run. Any test lasting longer than
 	 * 500ms should be considered a candidate in order to avoid making the overall test
-	 * suite too slow to run during the normal development cycle.
+	 * suite too slow to run during the normal development cycledependcy.
 	 */
 	LONG_RUNNING,
 

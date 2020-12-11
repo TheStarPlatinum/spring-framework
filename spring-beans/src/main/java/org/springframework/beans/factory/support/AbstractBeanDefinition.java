@@ -181,6 +181,11 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 	@Nullable
 	private MutablePropertyValues propertyValues;
 
+	/**
+	 * spring配置中存在lookup-method和replace-method两个配置功能 这两个配置的加载其实就是将配置
+	 * 统一存放在BeanDefinition中的methodOverrides中 这两个功能的实现原理其实是在bean实例化的时候如果检测到
+	 * 存在存放在methodOverrides中的属性 会动态地为当前bean生成代理 并使用对应的拦截器为bean做增强处理
+	 */
 	private MethodOverrides methodOverrides = new MethodOverrides();
 
 	@Nullable
