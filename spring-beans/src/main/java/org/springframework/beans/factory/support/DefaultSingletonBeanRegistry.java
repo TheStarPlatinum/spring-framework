@@ -181,9 +181,9 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 		//在已经注册了的单例map集合（singletonObjects）中获取特定beanName的bean
 		Object singletonObject = this.singletonObjects.get(beanName);
 		//检查这个bean是不是null，并且这个bean不在正在创建中的bean的map缓存（singletonsCurrentlyInCreation）中
-		System.out.println("out:    " + beanName + "         " + allowEarlyReference);
+//		System.out.println("out:    " + beanName + "         " + allowEarlyReference);
 		if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
-			System.out.println("in:     " + beanName);
+//			System.out.println("in:     " + beanName);
 			synchronized (this.singletonObjects) {
 				//从已经缓存了的单利对象集合中获取beanName对应的Bean
 				singletonObject = this.earlySingletonObjects.get(beanName);

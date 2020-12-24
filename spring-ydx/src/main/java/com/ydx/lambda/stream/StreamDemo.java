@@ -1,5 +1,7 @@
 package com.ydx.lambda.stream;
 
+import org.springframework.scheduling.annotation.EnableAsync;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -7,6 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@EnableAsync
 public class StreamDemo {
 
 
