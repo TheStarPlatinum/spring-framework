@@ -1,4 +1,4 @@
-package com.ydx.anno.entity;
+package com.ydx.anno.bean;
 
 public class ImportSelectorBean {
 

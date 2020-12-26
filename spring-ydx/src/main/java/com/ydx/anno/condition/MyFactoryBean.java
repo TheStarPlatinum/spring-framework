@@ -1,6 +1,6 @@
 package com.ydx.anno.condition;
 
-import com.ydx.anno.entity.BeanForFactoryBean;
+import com.ydx.anno.bean.BeanForFactoryBean;
 import org.springframework.beans.factory.FactoryBean;
 
 public class MyFactoryBean implements FactoryBean<BeanForFactoryBean> {

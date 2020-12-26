@@ -1,4 +1,4 @@
-package com.ydx.anno.entity;
+package com.ydx.anno.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

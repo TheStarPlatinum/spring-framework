@@ -61,7 +61,7 @@ public class CandidateComponentsIndexTests {
 	public void getCandidateTypesNoMatch() {
 		CandidateComponentsIndex index = new CandidateComponentsIndex(
 				Collections.singletonList(createSampleProperties()));
-		Set<String> actual = index.getCandidateTypes("com.example.service", "entity");
+		Set<String> actual = index.getCandidateTypes("com.example.service", "bean");
 		assertThat(actual).isEmpty();
 	}
 
@@ -69,10 +69,10 @@ public class CandidateComponentsIndexTests {
 	public void mergeCandidateStereotypes() {
 		CandidateComponentsIndex index = new CandidateComponentsIndex(Arrays.asList(
 				createProperties("com.example.Foo", "service"),
-				createProperties("com.example.Foo", "entity")));
+				createProperties("com.example.Foo", "bean")));
 		assertThat(index.getCandidateTypes("com.example", "service"))
 				.contains("com.example.Foo");
-		assertThat(index.getCandidateTypes("com.example", "entity"))
+		assertThat(index.getCandidateTypes("com.example", "bean"))
 				.contains("com.example.Foo");
 	}
 
@@ -87,7 +87,7 @@ public class CandidateComponentsIndexTests {
 		properties.put("com.example.service.One", "service");
 		properties.put("com.example.service.sub.Two", "service");
 		properties.put("com.example.service.Three", "service");
-		properties.put("com.example.domain.Four", "entity");
+		properties.put("com.example.domain.Four", "bean");
 		return properties;
 	}
 

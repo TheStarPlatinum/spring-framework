@@ -15,7 +15,7 @@ public class MyImportSelector implements ImportSelector {
 
 
 		return new String[]{
-				"com.ydx.anno.entity.ImportSelectorBean"
+				"com.ydx.anno.bean.ImportSelectorBean"
 		};
 	}
 }

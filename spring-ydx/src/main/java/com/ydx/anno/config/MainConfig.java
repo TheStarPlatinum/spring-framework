@@ -1,10 +1,8 @@
 package com.ydx.anno.config;
 
 import com.ydx.anno.condition.*;
-import com.ydx.anno.entity.BeanForFactoryBean;
-import com.ydx.anno.entity.Color;
-import com.ydx.anno.entity.Person;
-import org.springframework.beans.factory.FactoryBean;
+import com.ydx.anno.bean.Color;
+import com.ydx.anno.bean.Person;
 import org.springframework.context.annotation.*;
 
 @Configuration

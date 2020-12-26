@@ -84,7 +84,7 @@ public abstract class Assert {
 	 * on an assertion failure.
 	 * <pre class="code">
 	 * Assert.state(id == null,
-	 *     () -&gt; "ID for " + entity.getName() + " must not already be initialized");
+	 *     () -&gt; "ID for " + bean.getName() + " must not already be initialized");
 	 * </pre>
 	 * @param expression a boolean expression
 	 * @param messageSupplier a supplier for the exception message to use if the

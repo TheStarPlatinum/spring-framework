@@ -984,7 +984,7 @@ public class ServletAnnotationControllerHandlerMethodTests extends AbstractServl
 			wac.registerBeanDefinition("handlerAdapter", adapterDef);
 		}, ResponseEntityController.class);
 
-		MockHttpServletRequest request = new MockHttpServletRequest("GET", "/test-entity");
+		MockHttpServletRequest request = new MockHttpServletRequest("GET", "/test-bean");
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		getServlet().service(request, response);
 		assertThat(response.getStatus()).isEqualTo(200);
@@ -1595,7 +1595,7 @@ public class ServletAnnotationControllerHandlerMethodTests extends AbstractServl
 	public void flashAttributesWithResponseEntity() throws Exception {
 		initServletWithControllers(RedirectAttributesController.class);
 
-		MockHttpServletRequest request = new MockHttpServletRequest("POST", "/messages-response-entity");
+		MockHttpServletRequest request = new MockHttpServletRequest("POST", "/messages-response-bean");
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		HttpSession session = request.getSession();
 
