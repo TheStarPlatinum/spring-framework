@@ -6,6 +6,7 @@ import com.ydx.anno.bean.BeanForAutowiredType;
 import com.ydx.anno.config.MainConfig;
 import com.ydx.anno.bean.Person;
 import com.ydx.anno.config.MainConfigOfAutowired;
+import com.ydx.anno.config.MainConfigOfAware;
 import com.ydx.anno.config.MainConfigOfLifeCycle;
 import com.ydx.anno.service.BeanForAutowiredService;
 import org.junit.Test;
@@ -61,6 +62,37 @@ public class IocTest {
 		System.out.println("beanByCompent : " + beanByCompent);
 		System.out.println("beanByCompent2: " + beanByCompent2);
 	}
+
+	@Test
+	public void awareTest(){
+		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MainConfigOfAware.class);
+
+		System.out.println("***********");
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
