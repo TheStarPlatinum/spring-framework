@@ -1,0 +1,38 @@
+@startuml
+
+
+class ProxyProcessorSupport{
+}
+
+interface BeanFactoryAware{
+}
+
+interface SmartInstantiationAwareBeanPostProcessor{
+}
+
+abstract class AbstractAutoProxyCreator{
+'   会调用 initBeanFactory 后者在 anno中重写
+    public void setBeanFactory(BeanFactory beanFactory)
+    protected void initBeanFactory(ConfigurableListableBeanFactory beanFactory)
+    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName)
+}
+
+
+abstract class AbstractAdvisorAutoProxyCreator{
+    public void setBeanFactory(BeanFactory beanFactory)
+}
+
+class AspectJAwareAdvisorAutoProxyCreator{
+}
+
+class AnnotationAwareAspectJAutoProxyCreator{
+    protected void initBeanFactory(ConfigurableListableBeanFactory beanFactory)
+}
+
+BeanFactoryAware <|.. AbstractAutoProxyCreator
+SmartInstantiationAwareBeanPostProcessor <|.. AbstractAutoProxyCreator
+ProxyProcessorSupport <|-- AbstractAutoProxyCreator
+AbstractAutoProxyCreator<|-- AbstractAdvisorAutoProxyCreator
+AbstractAdvisorAutoProxyCreator <|-- AspectJAwareAdvisorAutoProxyCreator
+AspectJAwareAdvisorAutoProxyCreator <|-- AnnotationAwareAspectJAutoProxyCreator
+@enduml
