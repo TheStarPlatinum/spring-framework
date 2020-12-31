@@ -1,10 +1,19 @@
 @startuml
 
 
+interface InstantiationAwareBeanPostProcessor{
+    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName)
+}
+
+interface Ordered{
+    在注册时会根据ordered接口分到
+}
+
 class ProxyProcessorSupport{
 }
 
 interface BeanFactoryAware{
+
 }
 
 interface SmartInstantiationAwareBeanPostProcessor{
@@ -29,6 +38,8 @@ class AnnotationAwareAspectJAutoProxyCreator{
     protected void initBeanFactory(ConfigurableListableBeanFactory beanFactory)
 }
 
+Ordered <|.. ProxyProcessorSupport
+InstantiationAwareBeanPostProcessor <|-- SmartInstantiationAwareBeanPostProcessor
 BeanFactoryAware <|.. AbstractAutoProxyCreator
 SmartInstantiationAwareBeanPostProcessor <|.. AbstractAutoProxyCreator
 ProxyProcessorSupport <|-- AbstractAutoProxyCreator
