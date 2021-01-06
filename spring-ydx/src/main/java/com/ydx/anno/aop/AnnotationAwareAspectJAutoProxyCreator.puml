@@ -22,6 +22,8 @@ interface SmartInstantiationAwareBeanPostProcessor{
 abstract class AbstractAutoProxyCreator{
 '   会调用 initBeanFactory 后者在 anno中重写
     public void setBeanFactory(BeanFactory beanFactory)
+'    获取所有合适的增强器
+    findEligibleAdvisors(Class<?> beanClass, String beanName)
     protected void initBeanFactory(ConfigurableListableBeanFactory beanFactory)
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName)
 }

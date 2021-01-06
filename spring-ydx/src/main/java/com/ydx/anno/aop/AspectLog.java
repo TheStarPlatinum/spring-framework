@@ -1,6 +1,7 @@
 package com.ydx.anno.aop;
 
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -17,6 +18,11 @@ public class AspectLog {
 	@Before("pointCute()")
 	public void before(){
 		System.out.println("@Before");
+	}
+
+	@After("pointCute()")
+	public void after(){
+		System.out.println("@After");
 	}
 
 }
