@@ -1,0 +1,16 @@
+@startuml
+class TransactionManagementConfigurationSelector{
+
+}
+abstract class AdviceModeImportSelector<A extends Annotation>{
+}
+interface ImportSelector{
+}
+
+
+
+ImportSelector <|-- AdviceModeImportSelector
+AdviceModeImportSelector <|--TransactionManagementConfigurationSelector
+
+
+@enduml

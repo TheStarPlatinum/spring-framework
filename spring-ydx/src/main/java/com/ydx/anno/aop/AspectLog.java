@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 @Aspect
 public class AspectLog {
 
-	@Pointcut("execution(public int  com.ydx.anno.bean.BeanForAop.calculate(..))")
+	@Pointcut("execution(public int  com.ydx.anno.aop.bean.BeanForAop.calculate(..))")
 	public void pointCute(){
 		System.out.println("@pointCute");
 	}

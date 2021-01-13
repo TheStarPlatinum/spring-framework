@@ -1,0 +1,22 @@
+@startuml
+interface BeanPostProcessor{
+default Object postProcessBeforeInitialization(Object bean, String beanName)
+default Object postProcessAfterInitialization(Object bean, String beanName)
+}
+interface InstantiationAwareBeanPostProcessor{
+}
+interface DestructionAwareBeanPostProcessor{
+}
+interface MergedBeanDefinitionPostProcessor{
+}
+
+interface SmartInstantiationAwareBeanPostProcessor{
+}
+
+BeanPostProcessor <|-- InstantiationAwareBeanPostProcessor
+BeanPostProcessor <|-- DestructionAwareBeanPostProcessor
+BeanPostProcessor <|-- MergedBeanDefinitionPostProcessor
+InstantiationAwareBeanPostProcessor <|--SmartInstantiationAwareBeanPostProcessor
+
+
+@enduml

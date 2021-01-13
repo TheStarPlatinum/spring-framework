@@ -1,0 +1,23 @@
+@startuml
+abstract class AbstractApplicationContext{
+
+    refreshBeanFactory()
+    ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory()
+    prepareBeanFactory(ConfigurableListableBeanFactory beanFactory)
+    postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
+}
+
+class GenericApplicationContext{
+private final DefaultListableBeanFactory beanFactory
+    refreshBeanFactory()
+}
+
+class AnnotationConfigApplicationContext{
+
+}
+
+
+
+AbstractApplicationContext <|-- GenericApplicationContext
+GenericApplicationContext <|-- AnnotationConfigApplicationContext
+@enduml

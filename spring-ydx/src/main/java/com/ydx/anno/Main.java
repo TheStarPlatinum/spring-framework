@@ -1,6 +1,6 @@
 package com.ydx.anno;
 
-import com.ydx.anno.config.MainConfig;
+import com.ydx.anno.aop.config.MainConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

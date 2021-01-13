@@ -1,0 +1,27 @@
+spring refresh流程
+
+1.prepareRefresh(); 预刷新
+    1.initPropertySource() 默认为空 可以自己继承AbstractApplicationContext重写这个方法 可以设置环境变量等
+    2.getEnvironment().validateRequiredProperties();
+        getEnvironment() 在AnnotationConfigApplicationContext时 会执行父类AbstractApplicationContext的getEnvironment()方法 自己创建基本环境
+        validateRequireProperties()方法 判断参数是否合法
+    3.this.earlyApplicationEvents = new LinkedHashSet<>(); 保存容器中的一些早期事件
+
+2.ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory(); 获取beanFactory 一般来说是从子类中获取
+    1.refreshBeanFactory() 给beanFactory设置序列化id
+    2.getBeanFactory() 返回GenericApplicationContext中的beanFactory
+
+3.prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) 各种功能的填充
+    1.设置beanFactory的类加载器 bean解析器等 等
+    2.添加部分的postProcessor 如 ApplicationContextAwareProcessor
+    3.设置忽略的自动装配的接口 EnvironmentAware.class 等
+    4.注册可以自动装配的组件 BeanFactory.class  ResourceLoader.class ApplicationEventPublisher.class ApplicationContext.class 等 使其直接可以在任何组件中自动注入
+    5.添加后置处理器 ApplicationListenerDetector(this)
+    6.添加编译时的AspectJ支持
+    7.给beanFactory注册一些环境组件
+4.postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
+    1.子类通过重写此方法 在beanFactory创建并预准备完成后下一步操作
+====================以上为beanFactory的预准备工作====================
+
+
+
